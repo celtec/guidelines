@@ -434,3 +434,50 @@ beaches = ['Campeche', 'Daniela', 'Solidão']
 # correct
 beaches = %w(Campeche Daniela Solidão)
 ```
+
+### Standard library
+
+* When using methods with `bang!` on strings, arrays and other enumerables, do not chain them
+
+This is because many `bang!` methods return `nil` if no change happens ([for example, Array#reject!](http://ruby-doc.org/core-1.9.3/Array.html#method-i-reject-21)) and those mistakes are very hard to detect since it only happens in special circumstances.
+
+```ruby
+# wrong
+vehicles = foreigner_vehicles.select { |v| v.is_a?(Ferrari) }.sort_by!(&:year)
+
+# correct
+vehicles = foreigner_vehicles.select { |v| v.is_a?(Ferrari) }
+vehicles.sort_by!(&:year)
+vehicles
+```
+
+* Use `tap` when memoizing instead of using `begin..end` block
+
+```ruby
+# wrong
+def addresses
+  @addresses ||= begin
+    address = Services::Geolocate.locate(@data)
+
+    raise 'Invalid coordinates for geofence' unless outside_geofence?(address)
+
+    address
+  end
+end
+
+# correct
+def addresses
+  @addresses ||= Services::Geolocate.locate(@data).tap do |address|
+    raise 'Invalid coordinates for geofence' unless outside_geofence?(address)
+  end
+end
+```
+
+### Linting
+
+For linting your Ruby code you can use our existing configs in all projects `.rubocop.yml`. To do that run:
+
+```
+$ gem install rubocop
+$ rubocop
+```
