@@ -9,7 +9,8 @@ Coffeescript
 
 ## Code Style
 
-Add spaces around `(...)` and before `->`
+* Use `camelCase` to declare "classes", functions and variables
+* Add spaces around `(...)` and before `->`
 
 ```coffee
 # wrong
@@ -54,16 +55,16 @@ _privateMethod: ->
 ```coffee
 # wrong
 unless driver
-  check_current_driver()
+  checkCurrentDriver()
 else
-  register_driver()
+  registerDriver()
 end
 
 # correct
 if driver
-  register_driver()
+  registerDriver()
 else
-  check_current_driver()
+  checkCurrentDriver()
 end
 ```
 
@@ -71,8 +72,8 @@ end
 
 ```coffee
 # wrong
-register_event unless !turned_off?()
+registerEvent() unless !hasTurnedOff()
 
 # correct
-register_event if turned_off?()
+registerEvent() if hasTurnedOff()
 ```
