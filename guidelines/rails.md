@@ -81,6 +81,49 @@ end
 
 ## Models
 
+* Don’t be afraid of introducing non-Active Record objects to your model directory.
+* Avoid using `default_scope`. When you use `default_scope` you are defining that new objects and its select queries will always have such scope. `default_scope` is dangerous because it is a hidden behavior, some people will not expect a scope applied in a model. Prefer explicitly calling your scopes to quickly give your reader your intention.
+* Group macro-style methods (`has_many`, `validates`, etc) and organize the order of these groups to be consistent in all your model files. The following example show you how you can organize your models:
+
+```ruby
+class User < ActiveRecord::Base
+  # Constants
+  DEFAULT_STATUS = 'active'
+
+  # Attributes
+  attr_accessor :password
+
+  # Associations
+  belongs_to :operator
+  belongs_to :client
+
+  has_many :messages, dependent: :delete_all
+
+  # Enums
+  enum status: [:active, :expired, :blocked]
+
+  # Scopes
+  scope :maintenances, -> { where(role: 'maintenance') }
+
+  # Validations
+  validates_inclusion_of :role, in: AVAILABLE_ROLES
+  validates :name, :username, :role, presence: true
+
+  # Callbacks
+  before_save :set_client_operator
+
+  # Class methods
+  def self.schedule_expiration(expiration_date)
+    # ...
+  end
+
+  # Instance methods
+  def expired?
+    !expiration_date.nil? && expiration_date < Time.now
+  end
+end
+```
+
 ## Views
 
 ## Assets
