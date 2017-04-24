@@ -88,7 +88,7 @@ end
 ```ruby
 class User < ActiveRecord::Base
   # Constants
-  DEFAULT_STATUS = 'active'
+  AVAILABLE_ROLES = %w(maintenance operator client mobile)
 
   # Attributes
   attr_accessor :password
