@@ -12,7 +12,8 @@ As [Hugo Giraudel](http://hugogiraudel.com/) states in [Sass Guidelines](https:/
 And Harry Roberts from [CSS Guidelines](http://cssguidelin.es/#the-importance-of-a-styleguide):
 
 > A coding styleguide (note, not a visual styleguide) is a valuable tool for teams who
-* build and maintain products for a reasonable length of time;
+
+> * build and maintain products for a reasonable length of time;
 * have developers of differing abilities and specialisms;
 * have a number of different developers working on a product at any given time;
 * on-board new staff regularly;
