@@ -21,9 +21,9 @@ And Harry Roberts from [CSS Guidelines](http://cssguidelin.es/#the-importance-of
 
 ## Our Guidelines
 
-* General/Editor
-* Ruby
-* Rails
-* Coffeescript
-* Pull Requests
-* CSS and Sass
+* [General/Editor](https://github.com/celtec/guidelines/blob/master/guidelines/general.md)
+* [Ruby](https://github.com/celtec/guidelines/blob/master/guidelines/ruby.md)
+* [Rails](https://github.com/celtec/guidelines/blob/master/guidelines/rails.md)
+* [Coffeescript](https://github.com/celtec/guidelines/blob/master/guidelines/coffeescript.md)
+* [Pull Requests](https://github.com/celtec/guidelines/blob/master/guidelines/pull_requests.md)
+* [CSS and Sass](https://github.com/celtec/guidelines/blob/master/guidelines/css_sass.md)
