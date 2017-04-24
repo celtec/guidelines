@@ -124,6 +124,30 @@ class User < ActiveRecord::Base
 end
 ```
 
+* Prefer to use `validates` instead `validates_*`:
+
+```ruby
+# wrong
+validates_presence_of :email, :username
+
+# correct
+validates :email, :username, presence: true
+```
+
+* Prefer `scopes` instead of class methods ([see details](http://blog.plataformatec.com.br/2013/02/active-record-scopes-vs-class-methods/)):
+
+```ruby
+# wrong
+def self.by_token(token)
+  return nil unless token
+
+  find_by_token(token)
+end
+
+# correct
+scope :by_token, -> (token) { where(token: token) }
+```
+
 ## Views
 
 ## Assets
