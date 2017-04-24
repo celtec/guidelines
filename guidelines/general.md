@@ -27,8 +27,7 @@ Edit user preferences (`⌘ + , / Ctrl + ,`), add:
 
 In your `~/.vimrc` add:
 
-  * `set sw=2, set sts=2`
-  * `set expandtab`
+  * `set ts=2 sts=2 sw=2 expandtab`
   * `set autoindent`
 
 ## No trailing whitespaces or line endings
