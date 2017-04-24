@@ -78,3 +78,65 @@ def sum(a, b)
   a + b
 end
 ```
+
+* Don't add a blank line after class, method, spec definition or before respective `end`
+
+```ruby
+# wrong
+class TrackingModule
+
+  def initialize(data)
+    # ...
+  end
+
+end
+
+# correct
+class TrackingModule
+  def initialize(data)
+    # ...
+  end
+end
+```
+
+* Add blank line around `private` or `protected` definition
+
+```ruby
+# wrong
+class TrackingModule
+  def initialize(data)
+    # ...
+  end
+  private
+
+  def locate
+    # ...
+  end
+end
+
+# correct
+class TrackingModule
+  def initialize(data)
+    # ...
+  end
+
+  private
+
+  def locate
+    # ...
+  end
+end
+```
+
+* Indent `when` and `else` at same level of `case`
+
+```ruby
+case speed
+when 1..20 then 'Low gear'
+when 21..40 then 'Low speed'
+when 41..60 then 'Medium speed'
+else 'High speed'
+end
+```
+
+
