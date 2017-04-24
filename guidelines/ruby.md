@@ -399,3 +399,38 @@ vehicles.each do |vehicle|
   vehicle.register_speed(state.speed)
 end
 ```
+
+### Data Syntax
+
+* Always use new hash syntax when using Ruby >= 1.9x
+
+```ruby
+# wrong
+{ :driver_name => 'Rubinho Barrichello' }
+
+# correct
+{ driver_name: 'Ayrton Senna' }
+```
+
+* Only use double-quoted string when there is interpolation
+
+```ruby
+# wrong
+vehicle_model = "Ferrari 488 GTB"
+
+# correct
+vehicle_model = 'Ferrari 488 GTB'
+
+# also correct
+vehicle_model = "#{manufacturer_name} 488 GTB"
+```
+
+* Use `%w` to define array of strings
+
+```ruby
+# wrong
+beaches = ['Campeche', 'Daniela', 'Solidão']
+
+# correct
+beaches = %w(Campeche Daniela Solidão)
+```
