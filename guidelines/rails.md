@@ -150,6 +150,43 @@ scope :by_token, -> (token) { where(token: token) }
 
 ## Views
 
+* Instead accessing your models methods directly in views, prefer to define an instance variable in controllers
+
+```ruby
+# wrong
+<%= form_for @user do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :username %>
+  <%= f.collection_check_boxes :vehicle_ids, Vehicle.accessible, :id, :registration_plate %>
+
+  <%= f.submit %>
+<% end %>
+
+# correct
+class VehiclesController < ApplicationController
+  def new
+    @vehicles = Vehicle.accessible
+  end
+end
+
+<%= form_for @user do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :username %>
+  <%= f.collection_check_boxes :vehicle_ids, @vehicles, :id, :registration_plate %>
+
+  <%= f.submit %>
+<% end %>
+```
+
+* Avoid adding too much HTML in your view helper methods
+
+```
+# correct
+def icon(icon_name)
+  content_tag(:i, class: "fa-#{icon_name}")
+end
+```
+
 ## Assets
 
 * Add custom stylesheets, images, js, coffescripts inside `app/assets`
