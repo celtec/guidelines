@@ -19,7 +19,7 @@ foo = (arg1,arg2)->
 foo = (arg1, arg2) ->
 ```
 
-Don't use parenthesis for methods that take no arguments
+Don't use parenthesis to define methods that take no arguments
 
 ```coffee
 # wrong
@@ -27,6 +27,16 @@ bar = () ->
 
 # correct
 bar = ->
+```
+
+Use parenthesis on calling methods that take no arguments
+
+```coffee
+# wrong
+bar
+
+# correct
+bar()
 ```
 
 ### Private
@@ -44,16 +54,16 @@ _privateMethod: ->
 ```coffee
 # wrong
 unless driver
-  check_current_driver
+  check_current_driver()
 else
-  register_driver
+  register_driver()
 end
 
 # correct
 if driver
-  register_driver
+  register_driver()
 else
-  check_current_driver
+  check_current_driver()
 end
 ```
 
@@ -61,8 +71,8 @@ end
 
 ```coffee
 # wrong
-register_event unless !turned_off?
+register_event unless !turned_off?()
 
 # correct
-register_event if turned_off?
+register_event if turned_off?()
 ```
