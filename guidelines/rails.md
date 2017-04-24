@@ -180,7 +180,7 @@ end
 
 * Avoid adding too much HTML in your view helper methods
 
-```
+```ruby
 # correct
 def icon(icon_name)
   content_tag(:i, class: "fa-#{icon_name}")
