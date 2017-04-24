@@ -131,12 +131,90 @@ end
 * Indent `when` and `else` at same level of `case`
 
 ```ruby
+# correct
 case speed
 when 1..20 then 'Low gear'
 when 21..40 then 'Low speed'
 when 41..60 then 'Medium speed'
 else 'High speed'
 end
+
+# alternative correct
+case
+when speed < 80
+  register_speed(speed)
+when speed > 80
+  send_speed_danger_alert(speed)
+end
 ```
 
+* When there are multiple arguments
+
+```ruby
+# wrong
+register_state(speed: 50, ignition: false)
+
+# correct
+register_state(
+  speed: 50,
+  ignition: false
+)
+```
+
+* When there are multiple methods being chained
+
+```ruby
+# wrong
+Vehicle.states
+  .where(ignition: true)
+  .order(created_at: :asc)
+  .limit(10)
+
+# correct
+Vehicle.states.where(ignition: true).
+               order(created_at: :asc).
+               limit(10)
+```
+
+### Idioms
+
+Only use parenthesis when there are params in method definition
+
+```ruby
+# wrong
+def save()
+  # ...
+end
+
+# correct
+def save
+  # ...
+end
+
+# also correct
+def save(validate = true)
+end
+```
+
+### Naming
+
+#### Classes
+
+* Use `CamelCase`
+* Use `UPCASE_SNAKE_CASE` for constants
+
+#### Methods
+
+* Use `snake_case`
+* Boolean return should end with `?`: Ex.: `valid?`
+
+* Avoid types in names
+
+```ruby
+# wrong
+vehicles_array = Vehicle.all
+
+# correct
+vehicles = Vehicle.all
+```
 
