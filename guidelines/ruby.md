@@ -1,9 +1,7 @@
 Ruby
 ====
 
-## Code style
-
-### Indentation
+## Indentation
 
 * 2 spaces
 * No tabs
@@ -176,7 +174,7 @@ Vehicle.states.where(ignition: true).
                limit(10)
 ```
 
-### Idioms
+## Idioms
 
 Only use parenthesis when there are params in method definition
 
@@ -196,14 +194,14 @@ def save(validate = true)
 end
 ```
 
-### Naming
+## Naming
 
-#### Classes
+### Classes
 
 * Use `CamelCase`
 * Use `UPCASE_SNAKE_CASE` for constants
 
-#### Methods
+### Methods
 
 * Use `snake_case`
 * Boolean return should end with `?`: Ex.: `valid?`
@@ -218,7 +216,7 @@ vehicles_array = Vehicle.all
 vehicles = Vehicle.all
 ```
 
-### Syntax
+## Syntax
 
 * Always use `&&` and `||` for boolean expressions. Do not use `and` and `or` to avoid precedence issues
 
@@ -400,7 +398,7 @@ vehicles.each do |vehicle|
 end
 ```
 
-### Data Syntax
+## Data Syntax
 
 * Always use new hash syntax when using Ruby >= 1.9x
 
@@ -435,7 +433,7 @@ beaches = ['Campeche', 'Daniela', 'Solidão']
 beaches = %w(Campeche Daniela Solidão)
 ```
 
-### Standard library
+## Standard library
 
 * When using methods with `bang!` on strings, arrays and other enumerables, do not chain them
 
@@ -473,7 +471,7 @@ def addresses
 end
 ```
 
-### Linting
+## Linting
 
 For linting your Ruby code you can use our existing configs in all projects `.rubocop.yml`. To do that run:
 
