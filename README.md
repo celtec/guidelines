@@ -27,3 +27,9 @@ And Harry Roberts from [CSS Guidelines](http://cssguidelin.es/#the-importance-of
 * [Coffeescript](https://github.com/celtec/guidelines/blob/master/guidelines/coffeescript.md)
 * [Pull Requests](https://github.com/celtec/guidelines/blob/master/guidelines/pull_requests.md)
 * [CSS and Sass](https://github.com/celtec/guidelines/blob/master/guidelines/css_sass.md)
+
+## References
+
+* [Plataformatec](http://guidelines.plataformatec.com.br/)
+* [CSS Guidelines](http://cssguidelin.es/)
+* [Sass Guidelines](https://sass-guidelin.es)
