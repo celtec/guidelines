@@ -37,3 +37,5 @@ And Harry Roberts from [CSS Guidelines](http://cssguidelin.es/#the-importance-of
 * [Idiomatic CSS](https://github.com/necolas/idiomatic-css)
 * [CSS-Tricks - Sass Style Guide](https://css-tricks.com/sass-style-guide/)
 * [Mark Otto - Code Guide](https://github.com/mdo/code-guide)
+* [Future Friendly Style Guides](https://speakerdeck.com/lukebrooker/future-friendly-style-guides)
+* [Styleguides Examples](http://styleguides.io/examples)
