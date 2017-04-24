@@ -218,3 +218,184 @@ vehicles_array = Vehicle.all
 vehicles = Vehicle.all
 ```
 
+### Syntax
+
+* Always use `&&` and `||` for boolean expressions. Do not use `and` and `or` to avoid precedence issues
+
+```ruby
+# wrong
+success! if valid? and persisted?
+
+# correct
+success! if valid? && persisted?
+```
+
+```ruby
+# wrong
+success! if sent? or registered?
+
+# correct
+success! if sent? || registered?
+```
+
+* Don't use `else` together with `unless`
+
+```ruby
+# wrong
+unless driver
+  check_current_driver
+else
+  register_driver
+end
+
+# correct
+if driver
+  register_driver
+else
+  check_current_driver
+end
+```
+
+* Don't use `NOT` with `unless`
+
+```ruby
+# wrong
+register_event unless !turned_off?
+
+# correct
+register_event if turned_off?
+```
+
+* Don't use `then` for multi-line `if/unless`
+
+```ruby
+# wrong
+if turned_on? then
+  register_event
+end
+
+# correct
+register_event if turned_on?
+
+# also correct
+if turned_on?
+  register_event
+end
+```
+
+* Avoid `return` when not required
+
+```ruby
+# wrong
+def valid?
+  if vehicle.valid? && tracking_module.valid?
+    return true
+  else
+    return false
+  end
+end
+
+# correct
+def valid?
+  vehicle.valid? && tracking_module.valid?
+end
+```
+
+* Avoid `self` when not required
+
+```ruby
+# wrong
+def full_name
+  self.first_name + ' ' + self.last_name
+end
+
+# correct
+def full_name
+  [first_name, last_name].join(' ')
+end
+```
+
+* Use `_` for unused block parameters
+
+```ruby
+# wrong
+speeds.map { |key, speed| register_speed(speed) }
+
+# correct
+speeds.map { |_, speed| register_speed(speed) }
+```
+
+* Use `attr_*` to define trivial methods
+
+```ruby
+# wrong
+class Driver
+  def initialize(name, license_number)
+    @name = name
+    @license_number = license_number
+  end
+
+  def name
+    @name
+  end
+
+  def license_number
+    @license_number
+  end
+end
+
+# correct
+class Driver
+  attr_reader :name, :license_number
+
+  def initialize(name, license_number)
+    @name = name
+    @license_number = license_number
+  end
+end
+```
+
+* If you're defining an empty class, do it in a single-line
+
+```ruby
+# wrong
+class TruckDriver
+end
+
+class InvalidAxis < StandardError
+end
+
+# correct
+class TruckDriver; end
+
+class InvalidAxis < StandardError; end
+```
+
+* Only use `{ ... }` for single-line blocks, otherwise use `do/end`
+
+```ruby
+# wrong
+vehicles.each do |vehicle|
+  vehicle.update_last_state
+end
+
+# correct
+vehicles.each { |vehicle| vehicle.update_last_state }
+
+# also correct
+vehicles.each(&:update_last_state)
+```
+
+```ruby
+# wrong
+vehicles.each { |vehicle|
+  state = vehicle.update_last_state
+  vehicle.register_speed(state.speed)
+}
+
+# correct
+vehicles.each do |vehicle|
+  state = vehicle.update_last_state
+  vehicle.register_speed(state.speed)
+end
+```
