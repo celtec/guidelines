@@ -195,3 +195,30 @@ end
 ## Testing
 
 * Caution when mocking/stubbing your tests, overuse can hide errors
+
+## YAML
+
+Its not necessary to use quotes on defining keys with hyphen `-`:
+
+```yaml
+# wrong
+"pt-BR":
+  alert: Alerta
+
+# correct
+pt-BR:
+  alert: 'Alerta'
+```
+
+Use single-quotes for messages that doesn't require interpolation, then double quotes for those who require:
+
+```yaml
+# wrong
+pt-BR:
+  alert: Alerta
+  hello: 'Hello %{name}'
+
+# correct
+  alert: 'Alerta'
+  hello: "Hello %{name}"
+```
