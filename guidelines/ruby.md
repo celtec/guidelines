@@ -299,29 +299,35 @@ def valid?
 end
 ```
 
-* Avoid use of nested conditionals for flow of control
+* Avoid use of nested conditionals for flow control
 
 Prefer a guard clause when you can assert invalid data. A guard clause is a conditional statement at the top of a function that bails out as soon as it can.
 
 ```ruby
 # bad
-def compute_thing(thing)
-  if thing[:foo]
-    update_with_bar(thing[:foo])
-    if thing[:foo][:bar]
-      partial_compute(thing)
+def calculate_distance(vehicle_state)
+  if vehicle_state[:ignition]
+    update_traveled_distance!(vehicle_state[:odometer])
+
+    if vehicle_state[:sensor][:door]
+      register_travel_with_data(vehicle_state[:sensor])
     else
-      re_compute(thing)
+      recalculate_distance_without_violation(vehicle_state)
     end
   end
 end
 
 # good
-def compute_thing(thing)
-  return unless thing[:foo]
-  update_with_bar(thing[:foo])
-  return re_compute(thing) unless thing[:foo][:bar]
-  partial_compute(thing)
+def calculate_distance(vehicle_state)
+  return unless vehicle_state[:ignition]
+
+  update_traveled_distance!(vehicle_state[:odometer])
+
+  unless vehicle_state[:sensor][:door]
+    return recalculate_distance_without_violation(vehicle_state)
+  end
+
+  register_travel_with_data(vehicle_state[:sensor])
 end
 ```
 
