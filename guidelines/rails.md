@@ -210,7 +210,7 @@ pt-BR:
   alert: 'Alerta'
 ```
 
-Use single-quotes for messages that does not required interpolation, then double quotes for those who require:
+Use single-quotes for messages that doesn't require interpolation, then double quotes for those who require:
 
 ```yaml
 # wrong
