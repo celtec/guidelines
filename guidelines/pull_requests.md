@@ -3,6 +3,28 @@ Pull Requests
 
 Pull Request is great tool to review and discuss about solutions and implementations.
 
+## Opening Pull Requests
+
+### Title
+
+In titles use the following pattern if your PR is a feature branch or out-of-flow task branch:
+
+```
+#yyyy Show example of a nice PR title
+```
+
+* `#yyyy` is task/feature number in KanbanFlow
+* Title must be capitalized and conjugated in present
+
+### Description
+
+* Describe what you did/why you did it using description field remembering that reviewers need your context to review your PR
+
+### Metadata
+
+* Always use labels to allow filtering and better usability in listing
+* Indicate `Reviewers` that has more knowledge about that piece of code you're changing
+
 ## Receiving reviews
 
 As everyone will be able to review your changes, discussions will be raised, code samples will be shown, experiences will be shared. Everything is part of the review process.
