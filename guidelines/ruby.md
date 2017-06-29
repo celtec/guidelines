@@ -126,6 +126,42 @@ class TrackingModule
 end
 ```
 
+* Use pragma mark comment when instance private methods are absent
+
+# wrong
+```ruby
+class TrackingModule
+  def self.last_modified
+    # ...
+    check_version(version)
+  end
+
+  def self.check_version(version)
+    # ...
+  end
+  private_class_method :check_version
+end
+```
+
+# correct
+```ruby
+class TrackingModule
+  def self.last_modified
+    # ...
+    check_version(version)
+  end
+
+  # private
+
+  def self.check_version(version)
+    # ...
+  end
+  private_class_method :check_version
+end
+```
+
+When there are instance private methods you can use `private` modifier as usually (do not forgot about `private_class_method` definition).
+
 * Indent `when` and `else` at same level of `case`
 
 ```ruby
