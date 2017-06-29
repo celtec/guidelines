@@ -128,8 +128,8 @@ end
 
 * Use pragma mark comment when instance private methods are absent
 
-# wrong
 ```ruby
+# wrong
 class TrackingModule
   def self.last_modified
     # ...
@@ -143,8 +143,8 @@ class TrackingModule
 end
 ```
 
-# correct
 ```ruby
+# correct
 class TrackingModule
   def self.last_modified
     # ...
