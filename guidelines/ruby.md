@@ -139,6 +139,7 @@ class TrackingModule
   def self.check_version(version)
     # ...
   end
+  private_class_method :check_version
 end
 ```
 
