@@ -272,6 +272,8 @@ success! if sent? or registered?
 success! if sent? || registered?
 ```
 
+To understand why, check this [Ruby Tapas video](http://www.virtuouscode.com/2014/08/26/how-to-use-rubys-english-andor-operators-without-going-nuts/).
+
 * Don't use `else` together with `unless`
 
 ```ruby
