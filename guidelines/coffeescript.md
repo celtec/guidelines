@@ -77,3 +77,21 @@ registerEvent() unless !hasTurnedOff()
 # correct
 registerEvent() if hasTurnedOff()
 ```
+
+* Avoid using `Coffeescript`-style arguments (to facilitate switch to pure Javascript syntax and leave it explicit):
+
+```coffee
+# wrong
+@_fetchData(
+  type: "GET",
+  url: "/my-data-uri",
+  dataType: 'json'
+)
+
+# correct
+@_fetchData({
+  type: "GET",
+  url: "/my-data-uri",
+  dataType: 'json'
+})
+```
