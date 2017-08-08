@@ -212,6 +212,8 @@ Vehicle.states.where(ignition: true).
 
 ## Idioms
 
+### Parenthesis
+
 Only use parenthesis when there are params in method definition
 
 ```ruby
@@ -228,6 +230,24 @@ end
 # also correct
 def save(validate = true)
 end
+```
+
+### Thousands
+
+Use `underscore` to improve Fixnum thousands legibility:
+
+```ruby
+# wrong
+9123
+10250
+333769
+200780650
+
+# correct
+9_123
+10_250
+333_769
+200_780_650
 ```
 
 ## Naming
